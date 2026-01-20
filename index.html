@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden de Compra - QATA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Estilos específicos para igualar la imagen de referencia */
+        body { background-color: #fdf2e9; padding-top: 80px; }
+        .nav-blue { background-color: #007bff; min-height: 60px; }
+        .nav-blue .nav-link { color: white !important; font-weight: 500; }
+        .nav-blue .nav-link.active { font-weight: bold; text-decoration: underline; }
+        
+        .orden-container { max-width: 1050px; margin: auto; border-radius: 0; border: 1px solid #dee2e6; }
+        
+        .header-logo { width: 180px; }
+        .empresa-datos h1 { color: #007bff; font-size: 2.2rem; margin-bottom: 0; }
+        .empresa-datos h2 { font-size: 1.4rem; color: #333; }
+        .empresa-datos p { margin-bottom: 2px; line-height: 1.2; font-size: 0.9rem; }
+        .text-blue-qata { color: #007bff; font-weight: 500; }
+
+        .oc-box { 
+            border: 2px solid #000; 
+            padding: 15px; 
+            min-width: 220px; 
+            background-color: #fff;
+        }
+        .section-title { 
+            background-color: #f8f9fa; 
+            padding: 8px 15px; 
+            border-left: 5px solid #007bff; 
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg nav-blue fixed-top shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="imagenes/LOGO QATA.png" alt="QATA" style="height: 40px; filter: brightness(0) invert(1);">
+                </a>
+                <div class="collapse navbar-collapse justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">ORDEN DE COMPRA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/page/guia.html">GUÍA MANUAL</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/page/historial.html">HISTORIAL OC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mb-5">
+        <div class="orden-container bg-white p-5 shadow-sm">
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-md-3">
+                    <img src="imagenes/LOGO QATA.png" class="header-logo" alt="Logo QATA">
+                </div>
+                <div class="col-md-6 text-center empresa-datos">
+                    <h1 class="fw-bold">GRUPO QATA</h1>
+                    <h2 class="fw-bold">QATA ASOCIADOS S.A.C.</h2>
+                    <p>RUC: 20605226362</p>
+                    <p>AV. CAMINO REAL 1236, SAN ISIDRO, LIMA</p>
+                    <p class="text-blue-qata">Correo: Paster@grupoqata.pe - Jalejandro@grupoqata.pe</p>
+                    <p>Cel: 957 254 498</p>
+                </div>
+                <div class="col-md-3 text-end">
+                    <div class="oc-box text-center shadow-sm">
+                        <h4 class="mb-1 fw-bold">ORDEN DE COMPRA</h4>
+                        <p id="ocNumero" class="h5 text-danger fw-bold mb-1"></p>
+                        <p id="fecha" class="small text-muted mb-0"></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h5 section-title">Datos del Proveedor</h3>
+            <div class="row g-3 mb-5">
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">RUC</label>
+                    <input id="rucProv" class="form-control" placeholder="20XXXXXXXXX">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold">Razón Social</label>
+                    <input id="razonProv" class="form-control" placeholder="Nombre de la empresa">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">N° Cotización</label>
+                    <input id="cotizacionV" class="form-control" placeholder="COT-001">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold">Dirección</label>
+                    <input id="dirProv" class="form-control" placeholder="Dirección legal">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">Vendedor</label>
+                    <input id="vendedorProv" class="form-control" placeholder="Nombre contacto">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">Teléfono</label>
+                    <input id="celularV" class="form-control" placeholder="9XXXXXXXX">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">Correo</label>
+                    <input id="correoV" class="form-control" placeholder="ventas@proveedor.com">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">Término de Pago</label>
+                    <select id="terminoPago" class="form-select">
+                        <option value="Contado">Contado</option>
+                        <option value="Crédito 7 días">Crédito 7 días</option>
+                        <option value="Crédito 15 días">Crédito 15 días</option>
+                        <option value="Crédito 30 días">Crédito 30 días</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">Moneda</label>
+                    <select id="moneda" class="form-select" onchange="renderizarTabla()">
+                        <option value="S/">Soles (S/)</option>
+                        <option value="$">Dólares ($)</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold">Fecha Entrega</label>
+                    <input id="FechaE" type="date" class="form-control">
+                </div>
+            </div>
+
+            <h3 class="h5 section-title">Datos de Entrega / Obra</h3>
+            <div class="row g-3 mb-5">
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">Solicitado por</label>
+                    <input id="compradorNombre" class="form-control" placeholder="Nombre responsable">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">Celular Comprador</label>
+                    <input id="compradorCel" class="form-control" placeholder="9XXXXXXXX">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">Correo Comprador</label>
+                    <input id="compradorCorreo" class="form-control" placeholder="usuario@grupoqata.pe">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold">Obra</label>
+                    <input id="obra" class="form-control" placeholder="Nombre de proyecto">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold">Dirección de Entrega</label>
+                    <input id="ubicacionObra" class="form-control" placeholder="Ubicación exacta">
+                </div>
+            </div>
+
+            <h3 class="h5 section-title">Items de Compra</h3>
+            <div class="row g-2 mb-4 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label small fw-bold">Descripción del Producto</label>
+                    <input id="producto" class="form-control" placeholder="Ej: Cemento Sol x 42.5kg">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold">Cantidad</label>
+                    <input id="cantidad" type="number" class="form-control" placeholder="0">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold">Precio Unitario</label>
+                    <input id="precio" type="number" class="form-control" placeholder="0.00">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100 fw-bold" onclick="agregarProducto()">AÑADIR</button>
+                </div>
+            </div>
+
+            <table class="table table-bordered align-middle shadow-sm">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Item</th>
+                        <th>Descripción</th>
+                        <th class="text-center">Cant.</th>
+                        <th class="text-end">Precio</th>
+                        <th class="text-end">Subtotal</th>
+                        <th class="text-center">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="detalle"></tbody>
+            </table>
+
+            <div class="row mt-4">
+                <div class="col-md-7">
+                    <div class="alert alert-info small">
+                        <strong>Nota:</strong> Los totales incluyen IGV (18%) automáticamente.
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="totales p-4 bg-light border border-dark rounded">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Subtotal:</span>
+                            <span id="subtotal" class="fw-bold">S/ 0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>IGV (18%):</span>
+                            <span id="igv" class="fw-bold">S/ 0.00</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between h4 fw-bold text-primary">
+                            <span>TOTAL:</span>
+                            <span id="total">S/ 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-success btn-lg w-100 mt-5 py-3 fw-bold shadow" onclick="finalizarOC()">
+                💾 GENERAR ORDEN Y GUÍA (PDF)
+            </button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
