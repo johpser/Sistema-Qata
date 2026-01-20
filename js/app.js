@@ -1,6 +1,6 @@
 let productosGuardados = [];
 // Contadores con persistencia en LocalStorage
-let contadorOC = localStorage.getItem('contadorQata') ? parseInt(localStorage.getItem('contadorQata')) : 431;
+let contadorOC = localStorage.getItem('contadorQata') ? parseInt(localStorage.getItem('contadorQata')) : 437;
 let contadorGuia = localStorage.getItem('contadorGuiaQata') ? parseInt(localStorage.getItem('contadorGuiaQata')) : 100;
 
 // --- FUNCIÓN PARA DETECTAR LA RUTA DEL LOGO SEGÚN LA CARPETA ---
@@ -281,4 +281,5 @@ function generarGuiaPDF(oc) {
     logo.onerror = function() {
         logo.onload();
     };
+
 }
